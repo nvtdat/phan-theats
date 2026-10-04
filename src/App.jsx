@@ -13,6 +13,10 @@ import Ramen from './assets/ramen.png'
 import useDragScroll from './useDragScroll'
 import WaveDivider from './WaveDivider'
 import Dishes from './assets/dishes.png'
+import Boat from './assets/boat.png'
+import PhanThiet from './assets/phanthiet.png'
+import Image1 from './assets/image1.png'
+import Image2 from './assets/image2.png'
 function statItem({end, label}) {
   const [counter, setCounter] = useState(0)
   useEffect(() => {
@@ -46,7 +50,9 @@ function statItem({end, label}) {
 }
 
 const renderFood = (foodList) => {
-  const displayedFood = foodList.slice(0, 5); // Hiển thị 4 món ăn đầu tiên
+  //Hiển thị ngẫu nhiên 4 món ăn từ danh sách
+  const shuffledFood = [...foodList].sort(() => 0.5 - Math.random());
+  const displayedFood = shuffledFood.slice(0, 5); // Hiển thị 4 món ăn đầu tiên
   if(displayedFood.length === 0) {
     return <p>No food items available.</p>
   }
@@ -277,7 +283,40 @@ function App() {
               <span className="specialty-quote-icon">”</span>
             </div>
           </div>
+          {/*Foating boat image animation */}
+          <img src={Boat} alt="boat" className="floating-boat" />
           <WaveDivider />
+        </section>
+
+        {/* About Section*/}
+        <section className="about" id="about">
+          <div className="about-content">
+            <div className="about-header">
+              <h1 className="about-title">About Phan Thiet Cuisine</h1>
+            </div>
+            <div className="about-insight">
+              <div className="about-subtitle-container">
+                <h2 className="about-subtitle">GEOGRAPHICAL LOCATION</h2>
+                <p className="about-description">
+                  Phan Thiet sits along the south-central coast of Vietnam, in Binh Thuan province — about 200km from Ho Chi Minh City. 
+                  Known for its long white beaches, red sand dunes, and centuries-old fish sauce tradition, it's where the sea meets everyday life.
+                  
+                  Our mission is to bring the authentic flavors of this coastal city to food enthusiasts around the world. 
+                  From traditional dishes to modern interpretations, we celebrate the rich heritage and diverse tastes that define Phan Thiet's food culture.
+                </p>
+                <img src={PhanThiet} alt="Phan Thiet" className="about-image" />
+              </div>
+              <div className="about-image-container">
+                <img src={Image2} alt="Image 2" className="about-image-item" />
+                <img src={Image1} alt="Image 1" className="about-image-item" />
+              </div>
+            </div>
+          </div>
+          
+        </section>
+
+        {/* Cuisine Section */}
+        <section className="cuisine" id="cuisine">
         </section>
       </main>
 
