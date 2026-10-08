@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef} from 'react'
 import './App.css'
 import Logo from './assets/Logo.png'
 import Pic1 from './assets/pic1.png'
@@ -17,6 +17,67 @@ import Boat from './assets/boat.png'
 import PhanThiet from './assets/phanthiet.png'
 import Image1 from './assets/image1.png'
 import Image2 from './assets/image2.png'
+import Arrorw from './assets/curved-arrow.png'
+import Crab from './assets/crab_icon.png'
+import WhiteLogo from './assets/white_logo.png'
+
+function useFadeIn() {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
+  return { ref, isVisible };
+}
+
+function FeatureList(){
+  const { ref, isVisible } = useFadeIn();
+  const features = [
+    {label: "Fresh", desc: "Straight from the sea, every day."},
+    {label: "Handmade", desc: "Made by hand, the traditional way."},
+    {label: "Generation", desc: "Recipes passed down through generations."}
+  ]
+
+  return (
+    <div ref={ref} className="feature-list">
+      {features.map((feature, index) => (
+        <div 
+          key={feature.label} 
+          className={`feature-item ${isVisible ? 'is-visible' : ''}`} 
+          style={{ transitionDelay: `${index * 0.15}s` }}
+        >
+          <div className="feature-item-row">
+            <span className="feature-item-label">{feature.label}</span>
+            <div className="feature-item-line"></div>
+          </div>
+          <p className="feature-item-desc">{feature.desc}</p>
+        </div>
+      ))}
+    </div>
+  )
+
+}
+
 function statItem({end, label}) {
   const [counter, setCounter] = useState(0)
   useEffect(() => {
@@ -276,10 +337,10 @@ function App() {
            <div className="specialty-quote">
             <div className="specialty-quote-line">
               <span className="specialty-quote-icon">“</span>
-              <p className="specialty-quote-text">The best way to experience Phan Thiet is through its food.</p>
+              <p className="specialty-quote-text1">The best way to experience Phan Thiet is through its food.</p>
             </div>
             <div className="specialty-quote-line">
-              <p className="specialty-quote-text">From the bustling markets to the quiet streets, every corner has a story to tell.</p>
+              <p className="specialty-quote-text2">From the bustling markets to the quiet streets, every corner has a story to tell.</p>
               <span className="specialty-quote-icon">”</span>
             </div>
           </div>
@@ -295,20 +356,30 @@ function App() {
               <h1 className="about-title">About Phan Thiet Cuisine</h1>
             </div>
             <div className="about-insight">
-              <div className="about-subtitle-container">
-                <h2 className="about-subtitle">GEOGRAPHICAL LOCATION</h2>
-                <p className="about-description">
-                  Phan Thiet sits along the south-central coast of Vietnam, in Binh Thuan province — about 200km from Ho Chi Minh City. 
-                  Known for its long white beaches, red sand dunes, and centuries-old fish sauce tradition, it's where the sea meets everyday life.
-                  
-                  Our mission is to bring the authentic flavors of this coastal city to food enthusiasts around the world. 
-                  From traditional dishes to modern interpretations, we celebrate the rich heritage and diverse tastes that define Phan Thiet's food culture.
-                </p>
-                <img src={PhanThiet} alt="Phan Thiet" className="about-image" />
+              <div className="about-copy">
+                <div className="about-subtitle-container">
+                  <h2 className="about-subtitle">GEOGRAPHICAL LOCATION</h2>
+                  <p className="about-description">
+                    Phan Thiet sits along the south-central coast of Vietnam, in Binh Thuan province — about 200km from Ho Chi Minh City. 
+                    Known for its long white beaches, red sand dunes, and centuries-old fish sauce tradition, it's where the sea meets everyday life.
+                    
+                    Our mission is to bring the authentic flavors of this coastal city to food enthusiasts around the world. 
+                    From traditional dishes to modern interpretations, we celebrate the rich heritage and diverse tastes that define Phan Thiet's food culture.
+                  </p>
+                </div>
+                <div className="about-image-container">
+                  <img src={Image2} alt="Image 2" className="about-image-item1" />
+                  <img src={Image1} alt="Image 1" className="about-image-item2" />
+                </div>
               </div>
-              <div className="about-image-container">
-                <img src={Image2} alt="Image 2" className="about-image-item" />
-                <img src={Image1} alt="Image 1" className="about-image-item" />
+              <div className="about-map">
+                <div className="about-note">
+                  <div className="about-note-content">
+                    <div className="about-note-text">Phan Thiet</div>
+                    <img src={Arrorw} alt="Arrow" className="about-arrow" />
+                  </div>
+                </div>
+                <img src={PhanThiet} alt="Phan Thiet map outline" className="about-image" />
               </div>
             </div>
           </div>
@@ -317,6 +388,48 @@ function App() {
 
         {/* Cuisine Section */}
         <section className="cuisine" id="cuisine">
+          <div className="hero-image-blend"></div>
+          <div className="cuisine-header">
+            <div className="cuisine-title-row">
+              <img src={Crab} alt="crab" className="cuisine-header-icon" />
+              <h1 className="cuisine-title">PHAN THIET CUISINE</h1>
+            </div>
+            <h2 className="cuisine-subtitle">A Culinary Journey Through the Coastal City</h2>
+          </div>
+          <div className="cuisine-content">
+            <div className="cuisine-content-text">
+              <p className="cuisine-content-description">
+                Phan Thiet cuisine is a vibrant tapestry of flavors, shaped by the city's coastal geography and rich cultural heritage.
+                From the freshest seafood to the aromatic herbs and spices, every dish tells a story of the sea and the land.
+                The cuisine is characterized by its bold flavors, with a perfect balance of sweet, sour, salty, and umami notes.
+                Signature dishes like Banh Canh Cua (crab noodle soup) and Nem Nuong (grilled pork sausage) showcase the culinary artistry of Phan Thiet's chefs.
+                Whether you're savoring a bowl of hot noodle soup on a bustling street corner or enjoying a seafood feast by the beach, Phan Thiet cuisine offers an unforgettable gastronomic experience.
+              </p>
+              <FeatureList />
+            </div>
+            
+          </div>
+        </section>
+
+        {/* Footer Section */}
+        <section className="footer" id="footer">
+          <div className="footer-content">
+            <div className="footer-logo">
+              <img src={WhiteLogo} alt="logo" className="footer-logo-image" />
+            </div>
+            <div className="footer-links">
+              <a href="#home" className="footer-link">Home</a>
+              <a href="#menu" className="footer-link">Food</a>
+              <a href="#about" className="footer-link">About</a>
+              <a href="#specialty" className="footer-link">Specialty</a>
+            </div>
+            <div className="footer-contact">
+              <p className="footer-contact-text">Contact us:</p>
+              <p className="footer-contact-text">Email: nvtdat30052006@gmail.com</p>
+              <p className="footer-contact-text">Phone: +84 123 456 789</p>
+            </div>
+          </div>
+          <span className="footer-copyright">© Designed by Tien Dat.</span>
         </section>
       </main>
 
