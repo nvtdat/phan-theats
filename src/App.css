@@ -1188,7 +1188,7 @@
   font-size: 30px;
   color: #6B4E3D;
   font-family: 'Inria Serif', sans-serif !important;
-  font-style: italic !important;
+  
   font-weight: bold;
   text-align: left;
 }
@@ -1349,7 +1349,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 15px;
-  padding: 40px 0px;
+  padding: 40px 80px;
 }
 
 .feature-item {
@@ -1418,8 +1418,8 @@
 .footer-content {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: space-between;
   gap: 20px;
 }
 
@@ -1438,4 +1438,63 @@
   &:hover {
     color: #FA8E00; /* Màu khi hover */
   }
+}
+
+.footer-logo {
+  display: flex;
+  align-self: flex-start;
+}
+
+.footer-logo-image {
+  width: 100%;
+  height: auto;
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.footer-contact-title {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-family: 'Playfair Display', sans-serif !important;
+  color: #ffffff;
+  margin: 10px auto;
+}
+
+.footer-contact-subtitle {
+  font-size: 20px;
+  font-family: 'Inria Serif', sans-serif !important;
+  color: #ffffff;
+  margin: 10px auto;
+}
+
+.footer-contact-line {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 100%;
+  background: transparent;
+  border: none;
+
+}
+
+.footer-contact-icon {
+  width: 30px;
+  height: 30px;
+
+}
+
+.footer-contact-text {
+  font-size: 16px;
+  font-family: 'Inria Sans', sans-serif !important;
+  color: #ffffff;
 }

@@ -21,6 +21,10 @@ import Arrorw from './assets/curved-arrow.png'
 import Crab from './assets/crab_icon.png'
 import WhiteLogo from './assets/white_logo.png'
 
+import Email from './assets/email.png'
+import Linkedin from './assets/linkedin.png'
+import Github from './assets/github.png'
+
 function useFadeIn() {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
@@ -417,16 +421,22 @@ function App() {
             <div className="footer-logo">
               <img src={WhiteLogo} alt="logo" className="footer-logo-image" />
             </div>
-            <div className="footer-links">
-              <a href="#home" className="footer-link">Home</a>
-              <a href="#menu" className="footer-link">Food</a>
-              <a href="#about" className="footer-link">About</a>
-              <a href="#specialty" className="footer-link">Specialty</a>
-            </div>
+            
             <div className="footer-contact">
-              <p className="footer-contact-text">Contact us:</p>
-              <p className="footer-contact-text">Email: nvtdat30052006@gmail.com</p>
-              <p className="footer-contact-text">Phone: +84 123 456 789</p>
+              <h1 className="footer-contact-title">Let's connect</h1>
+              <h2 className="footer-contact-subtitle">Have feedback or a food tip?</h2>
+              <button className="footer-contact-line">
+                <img src={Email} alt="email" className="footer-contact-icon" />
+                <p className="footer-contact-text"> nvtdat30052006@gmail.com</p>
+              </button>
+              <button className="footer-contact-line" onClick={() => window.open('https://www.linkedin.com/in/%C4%91%E1%BA%A1t-nguy%E1%BB%85n-v%C4%83n-ti%E1%BA%BFn-8747b33b7/', '_blank')}>
+                <img src={Linkedin} alt="linkedin" className="footer-contact-icon" />
+                <p className="footer-contact-text"> https://www.linkedin.com/in/đạt-nguyễn-văn-tiến </p>
+              </button>
+              <button className="footer-contact-line" onClick={() => window.open('https://github.com/nvtdat', '_blank')}>
+                <img src={Github} alt="github" className="footer-contact-icon" />
+                <p className="footer-contact-text"> github.com/nvtdat</p>
+              </button>
             </div>
           </div>
           <span className="footer-copyright">© Designed by Tien Dat.</span>
