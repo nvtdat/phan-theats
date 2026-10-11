@@ -1,5 +1,5 @@
 import {fetchFoodData, fetchFoodDetails} from './foodAPI'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import './App.css';
 import Logo from './assets/logo.png';
@@ -15,11 +15,18 @@ function FoodDetails() {
     const [foodDetails, setFoodDetails] = useState(null);
     const [foodList, setFoodList] = useState([]);
 
+    const scrollRef = useRef(null);
+
+    function scroll(direction) {
+        const amount = 240;
+        scrollRef.current.scrollBy({ left: direction === 'left' ? -amount : amount, behavior: 'smooth' });
+    }
+
     useEffect(() => {
         async function loadFoodList() {
             try {
                 const data = await fetchFoodData();
-                const relatedFood = data.filter((food) => food.category === foodDetails.category && food.slug !== slug);
+                const relatedFood = data.filter((food) => food.category === normalize(foodDetails.category) && food.slug !== slug);
                 setFoodList(relatedFood);
             } catch(error) {
                 console.error('Error fetching food list: ', error);
@@ -35,13 +42,18 @@ function FoodDetails() {
         if (isFoodListLoading) {
             return <p>Loading related dishes...</p>;
         }
+
+        const randomFoodList = foodList.sort(() => 0.5 - Math.random());
         return (
-            <div className="food-list">
-                {foodList.map((food) => (
+            <div className="food-list" ref={scrollRef}>
+                {randomFoodList.map((food) => (
                     <div key={food.slug} className="food-list-item">
                         <img src={food.image_url} alt={food.name} className="food-list-image" />
                         <div className="food-list-name-panel">
                             <h3 className="food-list-name">{food.name}</h3>
+                            <button className="food-list-view-button">
+                                <Link to={`/food/${food.slug}`} className="food-list-view-link">View details</Link>
+                            </button>
                         </div>
                     </div>
                 ))}
@@ -114,7 +126,13 @@ function FoodDetails() {
             )}
 
             <div className="food-list-section">
-                <h2 className="food-list-title">Related Dishes</h2>
+                <div className="food-list-header">
+                    <h2 className="food-list-title">Related Dishes</h2>
+                    <div className="food-list-arrows">
+                        <button className="food-list-arrow-btn" onClick={() => scroll('left')}>‹</button>
+                        <button className="food-list-arrow-btn" onClick={() => scroll('right')}>›</button>
+                    </div>
+                </div>
                 {renderFoodList()}
             </div>
 

@@ -1541,6 +1541,7 @@
   widtH: 600px;
   height: 600px;
   object-fit: cover;
+  border-radius: 10px;
 
 }
 
@@ -1582,7 +1583,7 @@
 .food-details-price {
   font-size: 24px;
   font-weight: bold;
-  color: #FF5733; /* Màu sắc của giá */
+  color: #FF5733; 
   font-family: 'Be Vietnam Pro', sans-serif !important;
 }
 
@@ -1591,7 +1592,7 @@
   align-items: center;
   gap: 5px;
   font-size: 20px;
-  color: #f1a816;                /* số Vàng */
+  color: #f1a816;                
   font-family: 'Be Vietnam Pro', sans-serif !important;
   font-weight: 700;
 }
@@ -1633,36 +1634,73 @@
   text-align: left;
 }
 
+.food-list-header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.food-list-arrows {
+  display: flex;
+  gap: 8px;
+}
+
+.food-list-arrow-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid #C2570C;
+  background: #fff;
+  color: #C2570C;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+}
+
+.food-list-arrow-btn:hover {
+  background: #C2570C;
+  color: #fff;
+}
+
 .food-list-title {
+  display: flex;
+  flex-direction: row;
   font-size: 40px;
   font-weight: bold;
   color: #3A2418;
   font-family: 'Inria Serif', serif !important;
-  margin-bottom: 20px;
-}
-
-.food-list {
-  display: flex;
-  flex-direction: row;
-  width: 100%;              /* thêm dòng này */
-  max-width: 100%;           /* đảm bảo chắc chắn không vượt quá */
-  gap: 20px;
-  justify-content: flex-start;    /* đổi từ center, hợp hơn cho danh sách cuộn dài */
-  align-items: stretch;
-  overflow-y: hidden;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  box-sizing: border-box;
 }
 
 .food-list-section {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  justify-content: center;
+  gap: 10px;
   align-items: flex-start;
-  padding: 20px 40px;
-  
+  width: 100%;              
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 20px 0;          /* main đã có padding 80px hai bên rồi, không cần thêm */
+}
+
+.food-list {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-width: 0;
+  gap: 20px;
+  align-items: stretch;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .food-list-item {
@@ -1677,9 +1715,7 @@
   
   transition: transform 0.3s, box-shadow 0.3s;
   box-sizing: border-box;
-
-  overflow: hidden; /* Đảm bảo nội dung không tràn ra ngoài */
-
+  overflow-x: hidden; /* Đảm bảo nội dung không tràn ra ngoài */
   position: relative; /* Để food-name có thể được đặt tuyệt đối bên trong */
 }
 
@@ -1711,18 +1747,45 @@
 .food-list-name-panel {
   width: 350px;
   height: 250px;
-  background-color: #000000; /* Màu nền của panel */
+  background-color: rgba(0, 0, 0, 0);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  opacity: 0;
-
   position: absolute;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.food-list-name-panel > *{
+  opacity: 0; /* Độ mờ khi hover */
+  transition: opacity 0.3s ease-in-out;
 }
 
 .food-list-item:hover .food-list-name-panel {
-  opacity: 0.5; /* Độ mờ khi hover */
-  transition: opacity 0.3s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.5);  /* nền mờ 50% */
+}
+
+.food-list-item:hover .food-list-name-panel > * {
+  opacity: 1;                            /* chữ, nút rõ nét 100% */
+}
+
+.food-list-view-button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #FA8E00; /* Màu nền của nút */
+  color: #ffffff; /* Màu chữ của nút */
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Inria Sans', sans-serif !important;
+  font-size: 16px;
+}
+
+.food-list-view-link {
+  text-decoration: none;
+  color: inherit;
+  font-family: 'Inria Serif', sans-serif !important;
+  font-size: 16px;
+
 }
