@@ -212,6 +212,15 @@
   
 }
 
+.food_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 40px;
+  background: linear-gradient(to bottom right, #FFFFFF 0%, #F9ECDE 100%);
+  
+}
+
 .home_navigator {
   display: flex;
   flex-direction: row;
@@ -1097,7 +1106,7 @@
   margin: 0;  
   width: 100%;
   max-width: 800px;
-  font-size: 24px;
+  font-size: 20px;
   color: #6B4E3D;
   font-family: 'Be Vietnam', sans-serif !important;
   font-style: italic !important;
@@ -1309,8 +1318,6 @@
 }
 
 .cuisine-content-text {
-  font-size: 24px;
-  color: #6B4E3D;
   
   font-style: italic !important;
   font-weight: 400;
@@ -1417,10 +1424,11 @@
 
 .footer-content {
   display: flex;
+  width: 100%;
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 20px;
+  gap: 60px;
 }
 
 .footer-links {
@@ -1441,13 +1449,16 @@
 }
 
 .footer-logo {
-  display: flex;
+  width: auto;
   align-self: flex-start;
+  flex-shrink: 0;
 }
 
 .footer-logo-image {
+  display: block;
   width: 100%;
   height: auto;
+  align-self: flex-start;
 }
 
 .footer-contact {
@@ -1497,4 +1508,221 @@
   font-size: 16px;
   font-family: 'Inria Sans', sans-serif !important;
   color: #ffffff;
+}
+
+.city-name {
+  font-size: 30px;
+  font-weight: bold;
+  color: #3A2418;
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+}
+
+.food-details {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 80px;
+  min-height: 100vh;
+}
+
+.food-details-content {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: stretch;
+  padding: 20px 40px;
+}
+
+.food-details-image {
+  widtH: 600px;
+  height: 600px;
+  object-fit: cover;
+
+}
+
+.food-details-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  
+}
+
+.food-details-category {
+  display: flex;
+  background-color: #FDF1F5;      
+  color: #C2570C;                  
+  font-size: 16px;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 10px;             
+  text-transform: capitalize;
+  width: fit-content;       
+}
+
+.food-details-title {
+  font-size: 40px;
+  font-weight: bold;
+  color: #3A2418;
+  font-family: 'Playfair Display', serif !important;
+}
+
+.food-details-description {
+  font-size: 20px;
+  color: #6B4E3D;
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  
+  font-weight: 400;
+  text-align: left;
+}
+
+.food-details-price {
+  font-size: 24px;
+  font-weight: bold;
+  color: #FF5733; /* Màu sắc của giá */
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+}
+
+.food-details-rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 20px;
+  color: #f1a816;                /* số Vàng */
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-weight: 700;
+}
+
+.food-details-ingredients {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 20px;
+  color: #6B4E3D;
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+}
+
+
+.food-details-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.food-details-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-self: flex-end;
+  margin-top: auto;
+  width: 100%;
+  
+}
+
+.food-details-introduction {
+  font-size: 20px;
+  color: #6B4E3D;
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  font-weight: 400;
+  text-align: left;
+}
+
+.food-list-title {
+  font-size: 40px;
+  font-weight: bold;
+  color: #3A2418;
+  font-family: 'Inria Serif', serif !important;
+  margin-bottom: 20px;
+}
+
+.food-list {
+  display: flex;
+  flex-direction: row;
+  width: 100%;              /* thêm dòng này */
+  max-width: 100%;           /* đảm bảo chắc chắn không vượt quá */
+  gap: 20px;
+  justify-content: flex-start;    /* đổi từ center, hợp hơn cho danh sách cuộn dài */
+  align-items: stretch;
+  overflow-y: hidden;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+.food-list-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px 40px;
+  
+}
+
+.food-list-item {
+  flex-shrink: 0;
+  width: 400px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-sizing: border-box;
+
+  overflow: hidden; /* Đảm bảo nội dung không tràn ra ngoài */
+
+  position: relative; /* Để food-name có thể được đặt tuyệt đối bên trong */
+}
+
+.food-list-image {
+  width: 350px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.food-list-name {
+  width: 200px;
+  height: 40px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Playfair Display', sans-serif !important;
+  color: #ffffff;
+  
+  bottom: 10px;
+
+  display: flex;
+  justify-content: center;  
+
+  align-self: center;
+  
+}
+
+.food-list-name-panel {
+  width: 350px;
+  height: 250px;
+  background-color: #000000; /* Màu nền của panel */
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+
+  position: absolute;
+}
+
+.food-list-item:hover .food-list-name-panel {
+  opacity: 0.5; /* Độ mờ khi hover */
+  transition: opacity 0.3s ease-in-out;
 }

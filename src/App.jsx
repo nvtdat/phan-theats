@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef} from 'react'
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import Logo from './assets/Logo.png'
 import Pic1 from './assets/pic1.png'
@@ -7,7 +8,6 @@ import Pic3 from './assets/pic3.png'
 import RightArrow from './assets/rightWhite.png'
 import RightArrowBlack from './assets/rightBlack.png'
 import Search from './assets/search.png'
-import { supabase } from './supabaseClient'
 import Chopsticks from './assets/chopstick.png'
 import Ramen from './assets/ramen.png'
 import useDragScroll from './useDragScroll'
@@ -25,9 +25,17 @@ import Email from './assets/email.png'
 import Linkedin from './assets/linkedin.png'
 import Github from './assets/github.png'
 
+import { fetchFoodData } from './foodAPI'
+import { fetchFoodDetails } from './foodAPI'
+import FoodDetails from './foodDetails'
+
 function useFadeIn() {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
+
+  const handleFoodDetailsClick = (slug) => {
+    return <FoodDetails slug={slug} />;
+  }
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -122,7 +130,7 @@ const renderFood = (foodList) => {
     return <p>No food items available.</p>
   }
   return displayedFood.map((item) => (
-    <div key={item.id} className="food-item">
+    <div key={item.id} className="food-item" onClick= {() => window.location.href = `/food/${item.slug}`}>
       <img src={item.image_url} alt={item.name} className="food-item-image" />
       <div className="food-item-details">
         <h3 className="food-item-name">{item.name}</h3>
@@ -177,7 +185,7 @@ const renderBlobs = () => {
   )
 }
 
-function App() {
+function Home() {
   const [filterTab, setFilterTab] = useState('breakfast'); // Tab mặc định là "Breakfast"
   const [foodData, setFoodData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -186,27 +194,12 @@ function App() {
 
 
   useEffect(() => {
-    async function fetchFoodData() {
-      try {
-        const { data, error} = await supabase.from('dishes').select('*');
-        console.log('data:', data, 'error:', error);
-        if (error) {
-          console.error('Error fetching food data: ', error);
-        } else {
-          const withImageData = data.map(dish => ({
-            ...dish,
-            image_url: new URL(`./assets/dishes/${dish.slug}.jpg`, import.meta.url).href,
-          }));
-          setFoodData(withImageData);
-        }
-      } catch(error) {
-        console.error('Error fetching food data: ', error);
-      }
-      finally {
-        setIsLoading(false);
-      }
-    }
-    fetchFoodData();
+    setIsLoading(true);
+    const foodDataPromise = fetchFoodData();
+    foodDataPromise.then((data) => {
+      setFoodData(data);
+      setIsLoading(false);
+    })
    
   }, []);
 
@@ -364,7 +357,7 @@ function App() {
                 <div className="about-subtitle-container">
                   <h2 className="about-subtitle">GEOGRAPHICAL LOCATION</h2>
                   <p className="about-description">
-                    Phan Thiet sits along the south-central coast of Vietnam, in Binh Thuan province — about 200km from Ho Chi Minh City. 
+                    <span className="city-name">Phan Thiet</span> sits along the south-central coast of Vietnam, in Binh Thuan province — about 200km from Ho Chi Minh City. 
                     Known for its long white beaches, red sand dunes, and centuries-old fish sauce tradition, it's where the sea meets everyday life.
                     
                     Our mission is to bring the authentic flavors of this coastal city to food enthusiasts around the world. 
@@ -403,7 +396,7 @@ function App() {
           <div className="cuisine-content">
             <div className="cuisine-content-text">
               <p className="cuisine-content-description">
-                Phan Thiet cuisine is a vibrant tapestry of flavors, shaped by the city's coastal geography and rich cultural heritage.
+                <span className="city-name">Phan Thiet</span> cuisine is a vibrant tapestry of flavors, shaped by the city's coastal geography and rich cultural heritage.
                 From the freshest seafood to the aromatic herbs and spices, every dish tells a story of the sea and the land.
                 The cuisine is characterized by its bold flavors, with a perfect balance of sweet, sour, salty, and umami notes.
                 Signature dishes like Banh Canh Cua (crab noodle soup) and Nem Nuong (grilled pork sausage) showcase the culinary artistry of Phan Thiet's chefs.
@@ -442,8 +435,18 @@ function App() {
           <span className="footer-copyright">© Designed by Tien Dat.</span>
         </section>
       </main>
-
     </>
   )
+}
+
+
+function App () {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/food/:slug" element={<FoodDetails />} />
+    </Routes>
+  );
+  
 }
 export default App
