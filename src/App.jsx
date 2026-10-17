@@ -126,9 +126,9 @@ function statItem({end, label}) {
 }
 
 const renderFood = (foodList) => {
-  //Hiển thị ngẫu nhiên 4 món ăn từ danh sách
+  //Hiển thị ngẫu nhiên 5 món ăn từ danh sách
   const shuffledFood = [...foodList].sort(() => 0.5 - Math.random());
-  const displayedFood = shuffledFood.slice(0, 5); // Hiển thị 4 món ăn đầu tiên
+  const displayedFood = shuffledFood.slice(0, 5); // Hiển thị 5 món ăn đầu tiên
   if(displayedFood.length === 0) {
     return <p>No food items available.</p>
   }
@@ -308,7 +308,7 @@ function Home() {
             <div className={`popular_dishes_tab ${'breakfast' === filterTab ? 'active' : ''}`} onClick={() => handleTabClick('breakfast')}>Breakfast</div>
             <div className={`popular_dishes_tab ${'lunch' === filterTab ? 'active' : ''}`} onClick={() => handleTabClick('lunch')}>Lunch</div>
             <div className={`popular_dishes_tab ${'dinner' === filterTab ? 'active' : ''}`} onClick={() => handleTabClick('dinner')}>Dinner</div>
-            <div className={`popular_dishes_tab ${'desserts' === filterTab ? 'active' : ''}`} onClick={() => handleTabClick('desserts')}>Dessert</div>
+            <div className={`popular_dishes_tab ${'dessert' === filterTab ? 'active' : ''}`} onClick={() => handleTabClick('dessert')}>Dessert</div>
           </div>
           <div className="popular_dishes">
             {isLoading ? <p className="loading">Loading food items...</p> : renderFood(filteredFood)}
