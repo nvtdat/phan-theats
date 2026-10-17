@@ -8,6 +8,8 @@ import WhiteLogo from './assets/white_logo.png';
 import Email from './assets/email.png';
 import Linkedin from './assets/linkedin.png';
 import Github from './assets/github.png';
+import SearchBar from './SearchBar'
+
 function FoodDetails() {
     const { slug } = useParams();
     const [isLoading, setIsLoading] = useState(true);
@@ -24,9 +26,12 @@ function FoodDetails() {
 
     useEffect(() => {
         async function loadFoodList() {
+            if (!foodDetails) return;
+            setIsFoodListLoading(true);
             try {
                 const data = await fetchFoodData();
-                const relatedFood = data.filter((food) => food.category === normalize(foodDetails.category) && food.slug !== slug);
+                const relatedFood = data.filter((food) => food.category === foodDetails.category && food.slug !== slug);
+                console.log('relatedFood:', relatedFood);
                 setFoodList(relatedFood);
             } catch(error) {
                 console.error('Error fetching food list: ', error);
@@ -92,10 +97,7 @@ function FoodDetails() {
                 </div>
             </div>
             {/* Search bar */}
-            <div className="home_search">
-                <input type="text" placeholder="Search..." className="home_search_input" />
-                <img src={Search} alt="search" className="home_search_icon" />
-            </div>
+            <SearchBar />
         </header>
 
         <main className="food-details">
@@ -112,10 +114,13 @@ function FoodDetails() {
 
                         <p className="food-details-introduction"> {foodDetails.introduction}</p>
                         <div className="food-details-description-section">
-                            <h2>About the dish</h2>
+                            <h2 className="food-details-description-title">About this dish</h2>
                             <p className="food-details-description">{foodDetails.description}</p>
                         </div>
-                        <p className="food-details-ingredients"><strong>Ingredients:</strong> {foodDetails.ingredients}</p>
+                        <div className="food-details-ingredients-section">
+                            <h2 className="food-details-ingredients-title">Ingredients</h2>
+                            <p className="food-details-ingredients">{foodDetails.ingredients}</p>  
+                        </div>
                         <div className="food-details-footer">
                             <p className="food-details-price">{foodDetails.min_price.toLocaleString()} - {foodDetails.max_price.toLocaleString()} VND</p>
                             <p className="food-details-rating"> ⭐ {foodDetails.rating}</p>

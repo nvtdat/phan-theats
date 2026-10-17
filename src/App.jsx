@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef} from 'react'
 import { Routes, Route } from 'react-router-dom'
 import './App.css'
-import Logo from './assets/Logo.png'
+import Logo from './assets/Logo.svg'
 import Pic1 from './assets/pic1.png'
 import Pic2 from './assets/pic2.png'
 import Pic3 from './assets/pic3.png'
@@ -28,6 +28,9 @@ import Github from './assets/github.png'
 import { fetchFoodData } from './foodAPI'
 import { fetchFoodDetails } from './foodAPI'
 import FoodDetails from './foodDetails'
+import FishSauce from './assets/fish_sauce.png'
+import Banhmi from './assets/banhmi.png'
+import SearchBar from './SearchBar'
 
 function useFadeIn() {
   const [isVisible, setIsVisible] = useState(false);
@@ -236,10 +239,7 @@ function Home() {
               </div>
             </div>
             {/* Search bar */}
-            <div className="home_search">
-              <input type="text" placeholder="Search..." className="home_search_input" />
-              <img src={Search} alt="search" className="home_search_icon" />
-            </div>
+            <SearchBar />
           </header>
           <div className="home_content">
             <div className="home_content_intro">
@@ -260,14 +260,15 @@ function Home() {
                   {/*Nút discover và menu */}
                   <div className="home_content_intro_btns">
 
-                    <button className="discover_btn">
+                    <button className="discover_btn" onClick={() => window.location.href = '#about'}>
                       <div className="discover_btn_content">
                         <span style={{fontSize: '30', fontFamily: 'Inria Serif, sans-serif'}}>Discover</span>
                         <img src={RightArrow} alt="right-arrow" className="discover_arrow" />
                       </div> 
                     </button>
 
-                    <button className="menu_btn">
+                    <button className="menu_btn" onClick={() => window.location.href = '#menu'
+                    }>
                       <div className="menu_btn_content">
                         <span style={{fontSize: '30', fontFamily: 'Inria Serif, sans-serif'}}>Menu</span>
                         <img src={RightArrowBlack} alt="right-arrow" className="discover_arrow" />
@@ -370,6 +371,9 @@ function Home() {
                 </div>
               </div>
               <div className="about-map">
+                <div className="about_map_glow"></div>
+                <img src={FishSauce} alt="fish sauce bottle" className="about_bottle" />
+                <img src={Banhmi} alt="banh mi" className="about_banhmi" />
                 <div className="about-note">
                   <div className="about-note-content">
                     <div className="about-note-text">Phan Thiet</div>
