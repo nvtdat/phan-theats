@@ -1,16 +1,44 @@
-# React + Vite
+# Phan Th-Eats
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 1. Brief Introduction
 
-Currently, two official plugins are available:
+Phan Th-Eats is a React-based website built by myself to promote the cuisine of my hometown, Phan Thiết — a coastal city in Bình Thuận Province, Vietnam. Phan Thiết is widely known for its unique street food culture, featuring many signature dishes and drinks such as Bánh Xèo, Cơm Gà, Bánh Canh Chả Cá, and more.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+During 2019–2020, amid the COVID-19 pandemic, local farmers faced a surplus of dragon fruit due to export disruptions. In response, the community invented two creative products to make use of the abundant harvest: Dragon Fruit Bánh Mì and Dragon Fruit Instant Noodles. These innovations gained national attention and became a distinctive symbol of resilience and creativity for the region.
 
-## React Compiler
+This project was built as a personal portfolio piece to practice full-stack development skills — from UI/UX design in Figma to a working React application — while sharing a piece of my hometown with the world.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 2. Food and Drinks
 
-## Expanding the ESLint configuration
+All dish data is stored and managed via **Supabase** (PostgreSQL). The database currently contains **37 dishes and drinks**, each with details including name, price range, category, description, ingredients, rating, and image. This number will continue to grow as more local specialties are added.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 3. Features
+
+- **Home page** with an animated hero section, popular dishes filtered by meal time (Breakfast / Lunch / Dinner / Dessert), and a drag-to-scroll Specialty Dishes carousel
+- **Live search** with instant dropdown suggestions, powered by Supabase data
+- **Dish detail pages** with full descriptions, ingredients, pricing, and related dish recommendations
+- **About section** featuring the geographical story of Phan Thiết and its culinary culture
+- Fully responsive layout with custom CSS animations (floating illustrations, wave dividers, background blobs)
+
+## 4. Tech Stack
+
+- **Frontend:** React, Vite, React Router
+- **Backend / Database:** Supabase (PostgreSQL)
+- **Styling:** Custom CSS
+- **Design:** Figma
+
+## 5. Getting Started
+
+```bash
+git clone https://github.com/nvtdat/phan-th-eats.git
+cd phan-th-eats
+npm install
+npm run dev
+```
+
+## 6. Author
+
+Designed & built by **Tiến Đạt**
+- Email: nvtdat30052006@gmail.com
+- LinkedIn: [linkedin.com/in/đạt-nguyễn-văn-tiến](https://www.linkedin.com/in/%C4%91%E1%BA%A1t-nguy%E1%BB%85n-v%C4%83n-ti%E1%BA%BFn-8747b33b7/)
+- GitHub: [github.com/nvtdat](https://github.com/nvtdat)
