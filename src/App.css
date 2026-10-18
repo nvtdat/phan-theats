@@ -1501,6 +1501,7 @@
 .feature-item-line {
   flex: 1;
   height: 1px;
+  align-self: center;
   background-color: #352319;
 }
 
@@ -2108,10 +2109,8 @@
 .cuisine-content-text,
 .cuisine-content-description {
   text-align: left;
-  font-style: normal !important;
   font-family: 'Be Vietnam Pro', sans-serif !important;  /* sửa tên font */
   font-size: 18px;
-  line-height: 1.7;
 }
 
 /* Feature list thẳng hàng, đường kẻ dài bằng nhau */
