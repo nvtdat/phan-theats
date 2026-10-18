@@ -2100,3 +2100,21 @@
   .footer-contact { width: 100%; }
   .footer-contact-text { word-break: break-all; font-size: 14px; }
 }
+
+/* Bổ sung style cho CUISINE */
+/* Khối chữ gọn, cùng một trục, dễ đọc */
+.cuisine-content { max-width: 620px; }
+
+.cuisine-content-text,
+.cuisine-content-description {
+  text-align: left;
+  font-style: normal !important;
+  font-family: 'Be Vietnam Pro', sans-serif !important;  /* sửa tên font */
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* Feature list thẳng hàng, đường kẻ dài bằng nhau */
+.feature-list { align-items: stretch; padding: 40px 0; gap: 28px; }
+.feature-item { width: 100%; }
+.feature-item-desc { font-size: 24px; }
