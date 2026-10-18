@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef} from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import Logo from './assets/Logo.svg'
@@ -126,6 +127,7 @@ function statItem({end, label}) {
 }
 
 const renderFood = (foodList) => {
+  const navigate = useNavigate();
   //Hiển thị ngẫu nhiên 5 món ăn từ danh sách
   const shuffledFood = [...foodList].sort(() => 0.5 - Math.random());
   const displayedFood = shuffledFood.slice(0, 5); // Hiển thị 5 món ăn đầu tiên
