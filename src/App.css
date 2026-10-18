@@ -645,7 +645,7 @@
   flex-direction: row;
   gap: 20px;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .popular_dishes_tab {
@@ -671,7 +671,7 @@
   flex-direction: row;
   gap: 50px;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 20px;
   overflow: hidden;
   padding: 20px 20px;
@@ -682,7 +682,7 @@
   flex-wrap: wrap;      
   overflow: visible;
 
-  min-height: 560px; /* Chiều cao tối thiểu để tránh nhảy layout khi không có item */
+  min-height: 460px; 
 }
 
 .food-item {
