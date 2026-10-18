@@ -2048,3 +2048,39 @@
   width: 100%;
   min-width: 260px;
 }
+
+/* FIX Overflow khi search bar giãn ra, dropdown vẫn nằm trong main */
+.about { overflow-x: hidden; }
+
+@media (max-width: 900px) {
+  /* Header */
+  .home_search { max-width: 100px; }
+  .home_search:focus-within { width: min(300px, 80vw); }
+  .home_navigator { flex-wrap: wrap; gap: 20px; }
+
+  /* About */
+  .about-copy,
+  .about-map,
+  .about-note,
+  .about-image-container,
+  .about-subtitle-container,
+  .about-description { max-width: 100%; width: 100%; box-sizing: border-box; }
+
+  .about-image { width: 100%; max-width: 100%; }
+  .about-image-container { flex-wrap: wrap; justify-content: center; gap: 20px; }
+  .about-image-item1,
+  .about-image-item2 { width: min(300px, 45%); margin: 0; }
+  .about-note { flex-wrap: wrap; }
+
+  /* Mấy hình trang trí đặt bằng position: absolute, ẩn đi cho gọn */
+  .about_map_glow,
+  .about_bottle,
+  .about_banhmi { display: none; }
+
+  /* Footer */
+  .footer-content { flex-direction: column; align-items: center; gap: 30px; }
+  .footer-logo { align-self: center; }
+  .footer-logo-image { width: 100%; max-width: 220px; }
+  .footer-contact { width: 100%; }
+  .footer-contact-text { word-break: break-all; font-size: 14px; }
+}
