@@ -133,7 +133,7 @@ const renderFood = (foodList) => {
     return <p>No food items available.</p>
   }
   return displayedFood.map((item) => (
-    <div key={item.id} className="food-item" onClick= {() => window.location.href = `/food/${item.slug}`}>
+    <div key={item.id} className="food-item" onClick= {() => navigate(`/food/${item.slug}`)}>
       <img src={item.image_url} alt={item.name} className="food-item-image" />
       <div className="food-item-details">
         <h3 className="food-item-name">{item.name}</h3>

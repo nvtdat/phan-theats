@@ -555,6 +555,7 @@
 
 /* Blob 1: hồng phấn, góc trên-trái */
 .blob-1 {
+
   width: 280px;
   height: 260px;
   background: #F5C6D0;
@@ -680,6 +681,8 @@
   align-items: flex-start;
   flex-wrap: wrap;      
   overflow: visible;
+
+  min-height: 560px; /* Chiều cao tối thiểu để tránh nhảy layout khi không có item */
 }
 
 .food-item {
@@ -694,6 +697,7 @@
   transition: transform 0.3s, box-shadow 0.3s;
 
   overflow: hidden;
+  cursor: pointer;
 }
 
 .food-item-image {
