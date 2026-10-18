@@ -2,7 +2,7 @@ import {fetchFoodData, fetchFoodDetails} from './foodAPI'
 import { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import './App.css';
-import Logo from './assets/logo.png';
+import Logo from './assets/Logo.svg';
 import Search from './assets/search.png';
 import WhiteLogo from './assets/white_logo.png';
 import Email from './assets/email.png';
