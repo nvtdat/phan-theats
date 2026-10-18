@@ -126,8 +126,8 @@ function statItem({end, label}) {
   )
 }
 
-const renderFood = (foodList) => {
-  const navigate = useNavigate();
+const renderFood = (foodList, navigate) => {
+  
   //Hiển thị ngẫu nhiên 5 món ăn từ danh sách
   const shuffledFood = [...foodList].sort(() => 0.5 - Math.random());
   const displayedFood = shuffledFood.slice(0, 5); // Hiển thị 5 món ăn đầu tiên
@@ -195,7 +195,7 @@ function Home() {
   const [foodData, setFoodData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { ref: scrollRef, isDragging, handlers } = useDragScroll();
-
+  const navigate = useNavigate();
 
 
   useEffect(() => {
@@ -313,7 +313,7 @@ function Home() {
             <div className={`popular_dishes_tab ${'dessert' === filterTab ? 'active' : ''}`} onClick={() => handleTabClick('dessert')}>Dessert</div>
           </div>
           <div className="popular_dishes">
-            {isLoading ? <p className="loading">Loading food items...</p> : renderFood(filteredFood)}
+            {isLoading ? <p className="loading">Loading food items...</p> : renderFood(filteredFood, navigate)}
           </div>
         </section>
 
