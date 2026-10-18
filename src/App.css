@@ -153,6 +153,11 @@
   }
 }
 
+@media (max-width: 1100px) {
+  .home_content_intro_content { flex-direction: column; }
+  .home_content_pics { flex: none; width: 100%; }
+}
+
 #spacer {
   height: 88px;
   border-top: 1px solid var(--border);
@@ -198,9 +203,10 @@
   flex: 1;
   width: 100%;
   box-sizing: border-box;
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(to bottom right, #FFFFFF 0%, #F9ECDE 100%);
   padding: 0px 40px;
+  overflow-x: hidden;
   
 }
 
@@ -251,8 +257,18 @@
   padding: 0px 40px;
 }
 
+.home_content_intro_content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 40px;
+  gap: 20px;
+}
+
 .home_content_intro_title {
   flex: 1;
+  min-width: 0;
   font-size: 48px;
   font-weight: bold;
   line-height: 1.2;
@@ -290,14 +306,12 @@
 }
 
 .home_content_pics {
-  margin-top: -40px;
-  display: flex;
   position: relative;
-  gap: 20px;
-  width: 800px;
-  height: 500px;
-  flex-shrink: 0;
-  margin-right: 50px;
+  flex: 0 1 52%;         /* chiếm khoảng một nửa, được phép co */
+  max-width: 880px;
+  aspect-ratio: 880 / 620;
+  height: auto;
+  margin: -40px 0 0 0;
 
 }
 
@@ -333,6 +347,10 @@
   transition: transform 0.3s, box-shadow 0.3s;
 
 }
+
+.home_content_pics_item1 { top: 48%; left: 0;   width: 53%; height: auto; }
+.home_content_pics_item2 { top: 0;   left: 11%; width: 65%; height: auto; }
+.home_content_pics_item3 { top: 32%; left: 57%; width: 43%; height: auto; }
 
 .home_content_pics_item1:hover,
 .home_content_pics_item2:hover,
