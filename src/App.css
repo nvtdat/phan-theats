@@ -694,6 +694,7 @@
 
   overflow: hidden;
   cursor: pointer;
+  container-type: inline-size;
 }
 
 .food-item-details {
@@ -703,6 +704,7 @@
   width: 100%;
   margin-top: -5px;
   padding: 0px 10px;
+  
 }
 
 .food-item-image {
@@ -729,10 +731,13 @@
 }
 
 .food-item-price {
-  font-size: 16px;
+  
   font-weight: 600;
   color: #FF5733; /* Màu sắc của giá */
   font-family: 'Be Vietnam Pro', sans-serif !important;
+  white-space: nowrap;
+  font-size: 13px; 
+  font-size: clamp(0.7rem, 2.2vw, 1rem);
 }
 
 .food-item-description {

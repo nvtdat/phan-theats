@@ -140,7 +140,7 @@ const renderFood = (foodList, navigate) => {
       <div className="food-item-details">
         <h3 className="food-item-name">{item.name}</h3>
         <p className="food-item-description">{item.description}</p>
-        <p className="food-item-price">{item.min_price.toLocaleString()} - {item.max_price.toLocaleString()} VND</p>
+        <p className="food-item-price">{item.min_price.toLocaleString()} - {item.max_price.toLocaleString()} đ</p>
       </div>
     </div>
   ))
