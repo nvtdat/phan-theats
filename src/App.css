@@ -712,13 +712,12 @@
   margin-top: -10px;
   object-fit: cover;
   transition: transform 0.3s, box-shadow 0.3s;
-  margin-bottom: 10px;
+  
 }
 
 .food-item-name {
   font-size: 18px;
   font-weight: bold;
-  margin-bottom: 5px;
   text-align: center;
   font-family: 'Playfair Display', serif !important;
 
@@ -742,7 +741,7 @@
   font-style: italic;
   color: #6B4E3D; /* Màu sắc của mô tả */
   text-align: center;
-  margin-top: 5px;
+  margin-top: -5px;
   margin-bottom: 10px;
   font-family: 'Inria Serif', sans-serif !important;
   transition: max-height 0.3s ease, opacity 0.3s ease;
