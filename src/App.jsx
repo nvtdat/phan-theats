@@ -32,6 +32,7 @@ import FoodDetails from './foodDetails'
 import FishSauce from './assets/fish_sauce.png'
 import Banhmi from './assets/banhmi.png'
 import SearchBar from './SearchBar'
+import MenuPage from './MenuPage'
 
 function useFadeIn() {
   const [isVisible, setIsVisible] = useState(false);
@@ -269,7 +270,7 @@ function Home() {
                       </div> 
                     </button>
 
-                    <button className="menu_btn" onClick={() => window.location.href = '#menu'
+                    <button className="menu_btn" onClick={() => navigate('/menu')
                     }>
                       <div className="menu_btn_content">
                         <span style={{fontSize: '30', fontFamily: 'Inria Serif, sans-serif'}}>Menu</span>
@@ -451,6 +452,7 @@ function App () {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/food/:slug" element={<FoodDetails />} />
+      <Route path="/menu" element={<MenuPage />} />
     </Routes>
   );
   
