@@ -2212,6 +2212,7 @@
   justify-content: center; /* Căn giữa các item */
   gap: 30px;
   width: 100%;
+  max-width: 1980px; /* Giới hạn chiều rộng tối đa */
   margin-bottom: 20px;
 }
 
