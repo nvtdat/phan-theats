@@ -2175,7 +2175,7 @@
   gap: 20px;
   font-size: 60px;
   font-weight: bold;
-  font-family: 'Inria Serif', serif !important;
+  font-family: 'Playfair Display', serif !important;
   margin-top: 40px;
   margin-bottom: 10px;
   padding: 10px 20px;
@@ -2191,7 +2191,9 @@
 
 .menu-page-subtitle {
   text-align: center;
-  color: #8a6a55;
+  color: #333332;
+  font-family: 'Inria Serif', serif !important;
+  font-size: 20px;
   margin-top: -10px;
 }
 .menu-page-subtitle::after {
@@ -2368,6 +2370,7 @@
   background: #F7931E;
   cursor: pointer;
   transition: background 0.2s ease;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .menu-filter-btn:hover {
