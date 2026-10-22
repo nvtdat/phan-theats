@@ -19,7 +19,7 @@ function renderFoodList(foodList, isFoodLoading, navigate) {
         return <p>No food items found.</p>
     }
     if(isFoodLoading) {
-        return <p>Loading food items...</p>;
+        return <p className="menu-loading">Loading food items...</p>;
     }
 
     return foodList.map((food) => (

@@ -879,7 +879,7 @@
   width: 100%;
   margin-top: -5px;
 
-  flex-grow: 1; /* cho phép chiếm không gian còn lại */
+  flex-grow: 1; 
 }
 
 .specialty-item-image {
@@ -899,7 +899,6 @@
   font-family: 'Be Vietnam Pro', sans-serif !important;
   color: #1a1a1a;
 
-  /* Bỏ nowrap để tên xuống dòng tự nhiên như trong ảnh */
   white-space: normal;
   overflow: visible;
   text-overflow: unset;
@@ -908,8 +907,8 @@
 
 .specialty-item-description {
   font-size: 12px;
-  font-style: normal;           /* bỏ italic, ảnh mẫu không nghiêng */
-  color: #8a8a8a;               /* xám trung tính, không phải nâu ấm */
+  font-style: normal;          
+  color: #8a8a8a;               
   text-align: left;
   margin-top: 0;
   margin-bottom: 16px;
@@ -929,7 +928,7 @@
 .specialty-item-price {
   font-size: 18px;
   font-weight: 700;
-  color: #1a1a1a;               /* đen đậm, không phải cam */
+  color: #1a1a1a;               
   font-family: 'Be Vietnam Pro', sans-serif !important;
 }
 
@@ -1009,22 +1008,22 @@
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0px;                 /* -1px tránh khe hở do làm tròn pixel */
+  bottom: 0px;                 
   height: var(--wave-height);
   overflow: hidden;
-  z-index: 0;                   /* nằm sau card (.specialty-dishes có z-index: 1) */
+  z-index: 0;                   
   pointer-events: none; 
-         /* không chặn thao tác kéo/click */
+        
 }
  
 .wave-track {
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 200%;                  /* 2 bản SVG nối nhau => lặp liền mạch */
+  width: 200%;                  
   height: 100%;
   display: flex;
-  will-change: transform;       /* đẩy animation lên GPU */
+  will-change: transform;       
   animation: wave-drift linear infinite;
 }
  
@@ -1533,7 +1532,7 @@
 
 .feature-item.is-visible {
   opacity: 1;
-  transform: none;       /* thay cho translateX(0), tránh vẽ mờ do lớp transform */
+  transform: none;       
 }
 
 /*Footer Section*/
@@ -1570,7 +1569,7 @@
   transition: color 0.3s;
 
   &:hover {
-    color: #FA8E00; /* Màu khi hover */
+    color: #FA8E00; 
   }
 }
 
@@ -1826,7 +1825,7 @@
   width: 100%;              
   min-width: 0;
   box-sizing: border-box;
-  padding: 20px 0;          /* main đã có padding 80px hai bên rồi, không cần thêm */
+  padding: 20px 0;         
 }
 
 .food-list {
@@ -1856,8 +1855,8 @@
   
   transition: transform 0.3s, box-shadow 0.3s;
   box-sizing: border-box;
-  overflow-x: hidden; /* Đảm bảo nội dung không tràn ra ngoài */
-  position: relative; /* Để food-name có thể được đặt tuyệt đối bên trong */
+  overflow-x: hidden; 
+  position: relative; 
 }
 
 .food-list-image {
@@ -1899,23 +1898,23 @@
 }
 
 .food-list-name-panel > *{
-  opacity: 0; /* Độ mờ khi hover */
+  opacity: 0; 
   transition: opacity 0.3s ease-in-out;
 }
 
 .food-list-item:hover .food-list-name-panel {
-  background-color: rgba(0, 0, 0, 0.5);  /* nền mờ 50% */
+  background-color: rgba(0, 0, 0, 0.5); 
 }
 
 .food-list-item:hover .food-list-name-panel > * {
-  opacity: 1;                            /* chữ, nút rõ nét 100% */
+  opacity: 1;                           
 }
 
 .food-list-view-button {
   margin-top: 10px;
   padding: 8px 16px;
-  background-color: #FA8E00; /* Màu nền của nút */
-  color: #ffffff; /* Màu chữ của nút */
+  background-color: #FA8E00; 
+  color: #ffffff;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -1967,7 +1966,7 @@
 }
 
 .home_search {
-  position: relative;    /* bắt buộc để dropdown absolute định vị đúng */
+  position: relative;    
 }
 
 .home_search_input {
@@ -2044,10 +2043,10 @@
   margin: 0;
 }
 
-/* Wrapper giữ chỗ 100px, search bar giãn ngược về bên trái */
+
 .home_search_wrapper {
   display: flex;
-  justify-content: flex-end;   /* dính cạnh phải, phần dư tràn sang trái */
+  justify-content: flex-end;   
   width: 100px;
   flex-shrink: 0;
 }
@@ -2055,9 +2054,9 @@
 .home_search {
   position: relative;
   box-sizing: border-box;
-  flex-shrink: 0;              /* không cho bị co lại */
+  flex-shrink: 0;              
   width: 100px;
-  max-width: none;             /* bỏ max-width: 100px cũ */
+  max-width: none;             
   transition: width 0.3s ease-in-out;
 }
 
@@ -2066,14 +2065,14 @@
   width: 300px;
 }
 
-/* Input chỉ cần lấp đầy khung, không tự set 300px nữa */
+
 .home_search_input,
 .home_search_input.active {
   width: 100%;
   min-width: 0;
 }
 
-/* Dropdown bám cạnh phải, mở rộng về bên trái theo search bar */
+
 .search-dropdown {
   left: auto;
   right: 0;
@@ -2081,24 +2080,24 @@
   min-width: 260px;
 }
 
-/* FIX Overflow khi search bar giãn ra, dropdown vẫn nằm trong main */
+
 .about { overflow-x: clip; }
 .about-map {
-  flex: 0 1 600px;                     /* cho cụm bản đồ co lại theo màn hình */
+  flex: 0 1 600px;                     
   min-width: 0;
 }
 .about-image {
   width: 100%;
-  max-width: 600px;                    /* thay cho width: 700px cố định */
+  max-width: 600px;                    
 }
 
 @media (max-width: 900px) {
-  /* Header */
+ 
   .home_search { max-width: 100px; }
   .home_search:focus-within { width: min(300px, 80vw); }
   .home_navigator { flex-wrap: wrap; gap: 20px; }
 
-  /* About */
+
   .about-copy,
   .about-map,
   .about-note,
@@ -2112,7 +2111,7 @@
   .about-image-item2 { width: min(300px, 45%); margin: 0; }
   .about-note { flex-wrap: wrap; }
 
-  /* Mấy hình trang trí đặt bằng position: absolute, ẩn đi cho gọn */
+  
   .about_map_glow,
   .about_bottle,
   .about_banhmi { display: none; }
@@ -2125,18 +2124,17 @@
   .footer-contact-text { word-break: break-all; font-size: 14px; }
 }
 
-/* Bổ sung style cho CUISINE */
-/* Khối chữ gọn, cùng một trục, dễ đọc */
+
 .cuisine-content { max-width: 620px; }
 
 .cuisine-content-text,
 .cuisine-content-description {
   text-align: left;
-  font-family: 'Be Vietnam Pro', sans-serif !important;  /* sửa tên font */
+  font-family: 'Be Vietnam Pro', sans-serif !important;  
   font-size: 18px;
 }
 
-/* Feature list thẳng hàng, đường kẻ dài bằng nhau */
+
 .feature-list { align-items: stretch; padding: 40px 0; gap: 28px; }
 .feature-item { width: 100%; }
 .feature-item-desc { font-size: 24px; }
@@ -2161,8 +2159,8 @@
   justify-content: center;
   gap: 20px;
   width: 100%;
-  padding: 0 20px;   /* Thêm padding hai bên */
-  box-sizing: border-box; /* Đảm bảo padding không làm tràn */
+  padding: 0 20px;   
+  box-sizing: border-box; 
   background: #ffffff;
 }
 
@@ -2208,17 +2206,17 @@
 
 .menu-food-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 350px); /* Tạo lưới tự động với các cột có chiều rộng tối thiểu 350px */
-  justify-content: center; /* Căn giữa các item */
-  align-content: start; /* Căn trên các hàng */
+  grid-template-columns: repeat(auto-fill, 350px);
+  justify-content: center; 
+  align-content: start; 
   gap: 20px;
   width: 100%;
-  max-width: 1980px; /* Giới hạn chiều rộng tối đa */
+  max-width: 1980px; 
   margin: 0 auto 20px;
 }
 
 .menu-food-list-item {
-  position: relative;          /* thêm: làm mốc cho phần absolute */
+  position: relative;          
   width: 350px;
   min-height: 300px;
   box-sizing: border-box;
@@ -2229,7 +2227,7 @@
   align-items: center;
   justify-content: flex-start;
   gap: 10px;
-  padding: 10px 20px 55px;     /* sửa: chừa chỗ ở đáy cho giá/rating */
+  padding: 10px 20px 55px;     
   border-radius: 5px;
   border: 1px solid #bebeba;
   background-color: #ffffff;
@@ -2275,7 +2273,7 @@
 }
 
 .menu-food-list-price-rating {
-  position: absolute;          /* sửa: relative -> absolute */
+  position: absolute;          
   left: 20px;
   right: 20px;
   bottom: 15px;
@@ -2306,7 +2304,7 @@
 .menu-food-list-description {
   white-space: normal;
   text-align: left;
-  overflow-wrap: anywhere;    /* tránh từ dài làm tràn */
+  overflow-wrap: anywhere;    
 }
 
 .menu-food-list-main {
@@ -2355,11 +2353,11 @@
 
 .menu-toolbar {
   display: flex;
-  justify-content: flex-end;   /* đẩy nút sang phải */
+  justify-content: flex-end;   
   width: 100%;
-  max-width: 1500px;           /* chỉnh cho khớp bề rộng lưới món ăn */
+  max-width: 1500px;           
   margin: 0 auto 20px;
-  padding: 0;             /* canh lề trái/phải bằng với mép các thẻ */
+  padding: 0;             
   box-sizing: border-box;
 }
 
@@ -2368,7 +2366,7 @@
   align-items: center;
   justify-content: center;
   padding: 10px 12px;
-  border: none;                /* bỏ viền đen mặc định */
+  border: none;                
   border-radius: 999px;
   background: #F7931E;
   cursor: pointer;
@@ -2377,7 +2375,7 @@
 }
 
 .menu-filter-btn:hover {
-  background: #e8820c;         /* hover nên đậm hơn, vì icon trắng trên nền #FFE8D1 sẽ khó thấy */
+  background: #e8820c;         
 }
 
 .menu-filter-btn.active {
@@ -2386,7 +2384,7 @@
 }
 
 .menu-filter-dropdown {
-  position: absolute;          /* dùng absolute ở đây là đúng, vì cha đã relative */
+  position: absolute;         
   top: calc(100% + 8px);
   right: 0;
   z-index: 10;
@@ -2421,4 +2419,15 @@
 
 .menu-filter-wrapper {
   position: relative;
+}
+
+.menu-loading {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  height: 200px;
+  font-size: 20px;
+  color: #C2570C;
+  font-family: 'Inria Serif', sans-serif !important;
 }
