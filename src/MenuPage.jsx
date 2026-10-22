@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './App.css';
 import {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
-import Logo from './assets/Logo.svg';
+import Logo from './assets/Logo.png';
 import Search from './assets/search.png';
 import WhiteLogo from './assets/white_logo.png';
 import {fetchFoodData} from './foodAPI'
