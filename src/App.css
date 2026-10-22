@@ -240,6 +240,12 @@
 .home_navigator_item a:hover {
   color: #FF5733; /* Màu sắc khi hover */
 }
+.home_navigator_item a.active {
+  color: #FA8E00; /* Màu sắc khi active */
+}
+.home_navigator_item a.active:hover {
+  color: #D97600; /* Màu sắc khi active và hover */
+}
 
 .logo {
   width: 400px;
@@ -2147,6 +2153,20 @@
   background-color: #FDF1F5;
 }
 
+
+.menu-page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1980px; /* Giới hạn chiều rộng tối đa */
+  padding: 0 20px;   /* Thêm padding hai bên */
+  box-sizing: border-box; /* Đảm bảo padding không làm tràn */
+  background: #ffffff;
+}
+
 .menu-page-title {
   display: flex;
   flex-direction: row;
@@ -2157,8 +2177,9 @@
   font-size: 60px;
   font-weight: bold;
   font-family: 'Inria Serif', serif !important;
-  margin-bottom: 20px;
-  padding: 40px 20px;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  padding: 10px 20px;
 }
 
 .menu-page-title-highlight1 {
@@ -2167,6 +2188,31 @@
 
 .menu-page-title-highlight2 {
   color: #FA8E00;
+}
+
+.menu-page-subtitle {
+  text-align: center;
+  color: #8a6a55;
+  margin-top: -10px;
+}
+.menu-page-subtitle::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  margin:5px auto 0;
+  border-radius: 999px;
+  background: #F7931E;
+}
+
+.menu-food-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; /* Cho phép các item xuống dòng khi không đủ chỗ */
+  justify-content: center; /* Căn giữa các item */
+  gap: 30px;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .menu-food-list-item {

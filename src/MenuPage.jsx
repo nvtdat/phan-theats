@@ -42,6 +42,7 @@ function renderFoodList(foodList, isFoodLoading, navigate) {
 }
 
 function MenuPage() {
+    const [isActive, setIsActive] = useState('home');
     const [foodList, setFoodList] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -84,17 +85,17 @@ function MenuPage() {
                 <img src={Logo} alt="logo" className="logo" />
             </Link>
             <div className="home_navigator">
-                <div className="home_navigator_item">
-                    <Link to="/">Home</Link>
+                <div className="home_navigator_item" onClick={() => setIsActive('home')}>
+                    <Link to="/" className={isActive === 'home' ? 'active' : ''}>Home</Link>
                 </div>
-                <div className="home_navigator_item">
-                <a href="#menu">Food</a>
+                <div className="home_navigator_item" onClick={() => setIsActive('menu')}>
+                    <a href="#menu" >Food</a>
                 </div>
-                <div className="home_navigator_item">
-                <a href="#about">About</a>
+                <div className="home_navigator_item" onClick={() => setIsActive('about')}>
+                    <a href="#about">About</a>
                 </div>
-                <div className="home_navigator_item">
-                <a href="#specialty">Specialty</a>
+                <div className="home_navigator_item" onClick={() => setIsActive('specialty')}>
+                    <a href="#specialty">Specialty</a>
                 </div>
             </div>
             {/* Search bar */}
@@ -105,6 +106,7 @@ function MenuPage() {
                 <span className="menu-page-title-highlight1">Our</span> 
                 <span className="menu-page-title-highlight2">Menu</span>
             </div>
+            <p className="menu-page-subtitle">Flavor of Phan Thiet in every dishes</p>
             <div className="menu-toolbar">
                 <div className="menu-filter-wrapper">
                     <button className="menu-filter-btn"

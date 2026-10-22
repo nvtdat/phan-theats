@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef} from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom'
 import './App.css'
 import Logo from './assets/Logo.svg'
 import Pic1 from './assets/pic1.png'
@@ -197,6 +197,7 @@ function Home() {
   const [isLoading, setIsLoading] = useState(true);
   const { ref: scrollRef, isDragging, handlers } = useDragScroll();
   const navigate = useNavigate();
+  const [isActive, setIsActive] = useState('home');
 
 
   useEffect(() => {
@@ -228,18 +229,18 @@ function Home() {
           <header className="home_header">
             <img src={Logo} alt="logo" className="logo" />
             <div className="home_navigator">
-              <div className="home_navigator_item">
-                <a href="#home">Home</a>
-              </div>
-              <div className="home_navigator_item">
-                <a href="#menu">Food</a>
-              </div>
-              <div className="home_navigator_item">
-                <a href="#about">About</a>
-              </div>
-              <div className="home_navigator_item">
-                <a href="#specialty">Specialty</a>
-              </div>
+                <div className="home_navigator_item" onClick={() => setIsActive('home')}>
+                    <Link to="/" className={isActive === 'home' ? 'active' : ''}>Home</Link>
+                </div>
+                <div className="home_navigator_item" onClick={() => setIsActive('menu')}>
+                    <a href="#menu" >Food</a>
+                </div>
+                <div className="home_navigator_item" onClick={() => setIsActive('about')}>
+                    <a href="#about">About</a>
+                </div>
+                <div className="home_navigator_item" onClick={() => setIsActive('specialty')}>
+                    <a href="#specialty">Specialty</a>
+                </div>
             </div>
             {/* Search bar */}
             <SearchBar />
