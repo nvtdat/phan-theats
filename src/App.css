@@ -2205,14 +2205,14 @@
 }
 
 .menu-food-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap; /* Cho phép các item xuống dòng khi không đủ chỗ */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 350px); /* Tạo lưới tự động với các cột có chiều rộng tối thiểu 350px */
   justify-content: center; /* Căn giữa các item */
+  align-content: start; /* Căn trên các hàng */
   gap: 20px;
   width: 100%;
   max-width: 1980px; /* Giới hạn chiều rộng tối đa */
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
 }
 
 .menu-food-list-item {
@@ -2295,16 +2295,6 @@
   color: #f1a816;                
   font-family: 'Be Vietnam Pro', sans-serif !important;
   font-weight: 700;
-}
-
-.menu-food-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap; /* Cho phép các item xuống dòng khi không đủ chỗ */
-  justify-content: center; /* Căn giữa các item */
-  gap: 30px;
-  width: 100%;
-  margin-bottom: 20px;
 }
 
 .menu-food-list-name,
