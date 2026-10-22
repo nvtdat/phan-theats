@@ -86,7 +86,7 @@ function MenuPage() {
             </Link>
             <div className="home_navigator">
                 <div className="home_navigator_item" onClick={() => setIsActive('home')}>
-                    <Link to="/" className={isActive === 'home' ? 'active' : ''}>Home</Link>
+                    <Link to="/">Home</Link>
                 </div>
                 <div className="home_navigator_item" onClick={() => setIsActive('menu')}>
                     <a href="#menu" >Food</a>
