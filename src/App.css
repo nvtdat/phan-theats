@@ -2206,11 +2206,12 @@
 }
 
 .menu-food-list {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; /* Cho phép các item xuống dòng khi không đủ chỗ */
+  justify-content: center; /* Căn giữa các item */
   gap: 30px;
   width: 100%;
-  max-width: 1980px;
   margin-bottom: 20px;
 }
 
@@ -2233,22 +2234,6 @@
   box-shadow: none;
 
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-@media(max-width: 1200px) {
-  .menu-food-list {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-@media(max-width: 900px) {
-  .menu-food-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media(max-width: 600px) {
-  .menu-food-list {
-    grid-template-columns: repeat(1, 1fr);
-  }
 }
 
 .menu-food-list-item:hover {
