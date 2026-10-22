@@ -2216,7 +2216,7 @@
 
 .menu-food-list-item {
   position: relative;          /* thêm: làm mốc cho phần absolute */
-  width: auto;
+  width: 350px;
   min-height: 300px;
   box-sizing: border-box;
   flex-shrink: 0;
