@@ -11,6 +11,12 @@ import Github from './assets/github.png';
 import SearchBar from './SearchBar'
 
 function FoodDetails() {
+    const color = [
+        {type: 'breakfast', color: '#fab85b'},
+        {type: 'lunch', color: '#f87c75'},
+        {type: 'dinner', color: '#d75639'},
+        {type: 'dessert', color: '#e3a1e3'},
+    ]
     const { slug } = useParams();
     const [isLoading, setIsLoading] = useState(true);
     const [isFoodListLoading, setIsFoodListLoading] = useState(true);
@@ -109,7 +115,7 @@ function FoodDetails() {
                     <div className="food-details-info">
                         <div className="food-details-header">
                             <h1 className="food-details-title">{foodDetails.name}</h1>
-                            <div className="food-details-category"> {foodDetails.category}</div>
+                            <div className="food-details-category" style={{ backgroundColor: color.find(c => c.type === foodDetails.category.toLowerCase())?.color }}> {foodDetails.category}</div>
                         </div>
 
                         <p className="food-details-introduction"> {foodDetails.introduction}</p>
