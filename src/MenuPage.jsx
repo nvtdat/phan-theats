@@ -15,6 +15,12 @@ import Filter from './assets/filter.png';
 
 
 function renderFoodList(foodList, isFoodLoading, navigate) {
+    const color = [
+        {type: 'breakfast', color: '#fab85b'},
+        {type: 'lunch', color: '#f87c75'},
+        {type: 'dinner', color: '#d75639'},
+        {type: 'dessert', color: '#e3a1e3'},
+    ]
     if(foodList.length === 0 && !isFoodLoading) {
         return <p>No food items found.</p>
     }
@@ -25,7 +31,9 @@ function renderFoodList(foodList, isFoodLoading, navigate) {
     return foodList.map((food) => (
         <div key={food.slug} className="menu-food-list-item" onClick={() => navigate(`/food/${food.slug}`)}>
             <img src={food.image_url}  className="menu-food-list-image" />
-            <div className="menu-food-list-category">{food.category}</div>
+            <div className="menu-food-list-category" style={{ backgroundColor: color.find(c => c.type === food.category.toLowerCase())?.color }}>
+                {food.category}
+            </div>
             <div className="menu-food-list-info">
                 
                 <h3 className="menu-food-list-name">{food.name}</h3>
