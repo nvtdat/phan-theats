@@ -42,3 +42,9 @@ Designed & built by **Tiến Đạt**
 - Email: nvtdat30052006@gmail.com
 - LinkedIn: [linkedin.com/in/đạt-nguyễn-văn-tiến](https://www.linkedin.com/in/%C4%91%E1%BA%A1t-nguy%E1%BB%85n-v%C4%83n-ti%E1%BA%BFn-8747b33b7/)
 - GitHub: [github.com/nvtdat](https://github.com/nvtdat)
+
+## 7. Website Overview
+<img width="1897" height="1022" alt="Screenshot 2026-10-23 142511" src="https://github.com/user-attachments/assets/a4f60e28-50da-4fcb-a601-e01ab1d16be8" />
+<img width="1902" height="992" alt="Screenshot 2026-10-23 142454" src="https://github.com/user-attachments/assets/dbd06e35-2147-465a-95f2-69378fc72e24" />
+<img width="1900" height="981" alt="Screenshot 2026-10-23 142444" src="https://github.com/user-attachments/assets/e2b085ea-a084-44fb-b0cb-1f2ef995eb72" />
+
