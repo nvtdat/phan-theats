@@ -2231,6 +2231,7 @@
   border: 1px solid #bebeba;
   background-color: #ffffff;
   box-shadow: none;
+  cursor: pointer;
 
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
@@ -2315,6 +2316,7 @@
 }
 
 .menu-food-list-category {
+  text-transform: capitalize;
   position: absolute;
   display: flex;
   flex-direction: column;
