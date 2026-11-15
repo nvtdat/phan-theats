@@ -8,7 +8,6 @@ import Pic2 from './assets/pic2.png'
 import Pic3 from './assets/pic3.png'
 import RightArrow from './assets/rightWhite.png'
 import RightArrowBlack from './assets/rightBlack.png'
-import Search from './assets/search.png'
 import Chopsticks from './assets/chopstick.png'
 import Ramen from './assets/ramen.png'
 import useDragScroll from './useDragScroll'
@@ -27,12 +26,14 @@ import Linkedin from './assets/linkedin.png'
 import Github from './assets/github.png'
 
 import { fetchFoodData } from './foodAPI'
-import { fetchFoodDetails } from './foodAPI'
+
 import FoodDetails from './foodDetails'
 import FishSauce from './assets/fish_sauce.png'
 import Banhmi from './assets/banhmi.png'
 import SearchBar from './SearchBar'
 import MenuPage from './MenuPage'
+
+import useScrollSpy from './useScrollSpy'
 
 function useFadeIn() {
   const [isVisible, setIsVisible] = useState(false);
@@ -191,6 +192,16 @@ const renderBlobs = () => {
   )
 }
 
+const links = [
+  {id: 'home', label: 'Home', href: '#home'},
+  {id: 'menu', label: 'Menu', href: '#menu'},
+  {id: 'about', label: 'About', href: '#about'},
+  {id: 'specialty', label: 'Specialty', href: '#specialty'},
+  
+]
+
+const sectionIds = ['home', 'menu', 'about', 'specialty']
+
 function Home() {
   const [filterTab, setFilterTab] = useState('breakfast'); // Tab mặc định là "Breakfast"
   const [foodData, setFoodData] = useState([]);
@@ -199,6 +210,12 @@ function Home() {
   const navigate = useNavigate();
   const [isActive, setIsActive] = useState('home');
 
+  const ids = links.map(link => link.id);
+  const activeSection = useScrollSpy(ids);
+  
+  useEffect(() => {
+    setIsActive(activeSection);
+  }, [activeSection]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -229,18 +246,11 @@ function Home() {
           <header className="home_header">
             <img src={Logo} alt="logo" className="logo" />
             <div className="home_navigator">
-                <div className="home_navigator_item" onClick={() => setIsActive('home')}>
-                    <Link to="/" className={isActive === 'home' ? 'active' : ''}>Home</Link>
-                </div>
-                <div className="home_navigator_item" onClick={() => setIsActive('menu')}>
-                    <a href="#menu" >Food</a>
-                </div>
-                <div className="home_navigator_item" onClick={() => setIsActive('about')}>
-                    <a href="#about">About</a>
-                </div>
-                <div className="home_navigator_item" onClick={() => setIsActive('specialty')}>
-                    <a href="#specialty">Specialty</a>
-                </div>
+                {links.map(({id, label, href}) => (
+                  <div className="home_navigator_item" key={id} onClick={() => setIsActive(id)}>
+                    <a href={href} className={isActive === id ? 'active' : ''}>{label}</a>
+                  </div>
+                ))}
             </div>
             {/* Search bar */}
             <SearchBar />
